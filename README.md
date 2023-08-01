@@ -12,7 +12,7 @@ echo 'alias nv=nvim' >> ~/.zshrc
 ```
 
 ### Set up iTerm2
-Manual configuration (for now):
+Manual configuration:
 * Install [JetBrainsMono Nerd Font](https://www.nerdfonts.com/font-downloads) and set it as the default terminal font.
 * Choose JetbrainsMono Nerd Font and **not** ~~JetbrainsMono Nerd Font Mono~~ to avoid small icons.
 * Change default font size to 20pt.
