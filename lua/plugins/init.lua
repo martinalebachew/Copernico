@@ -13,7 +13,7 @@ local default_plugins = {
   },
 
   {
-    "NvChad/ui",
+    "martinalebachew/Copernico-ui",
     branch = "v2.0",
     lazy = false,
   },
