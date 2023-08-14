@@ -1,4 +1,17 @@
-# macOS Configuration Guide
+# Copernico 🤔
+Copernico is my NeoVim configuration based on NvChad and tailored to my specific needs and preferences. It's compatible with MacOS, Linux & Windows and includes
+the following adjustments:
+
+* No example configuration prompt.
+* Safe installation commands with backups.
+* Catppuccin as the default theme.
+* GitHub Copilot NeoVim plugin pre-installed.
+* Syntax highlighting for many of my favorite languages.
+* Updated post-installation readme buffer.
+
+Installation scripts will be added in the near future. In the meanwhile, enjoy this MacOS guide:
+
+## macOS Configuration Guide
 
 ### Install prerequisites
 ```
