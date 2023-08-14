@@ -16,6 +16,7 @@ Manual configuration:
 * Install [JetBrainsMono Nerd Font](https://www.nerdfonts.com/font-downloads) and set it as the default terminal font.
 * Choose JetbrainsMono Nerd Font and **not** ~~JetbrainsMono Nerd Font Mono~~ to avoid small icons.
 * Change default font size to 20pt.
+* Using the menu bar, lick iTerm2 > Make iTerm2 Default Term.
 
 ### Install NvConfig
 ```
