@@ -13,8 +13,8 @@ local default_plugins = {
   },
 
   {
-    "martinalebachew/Copernico-ui",
-    branch = "v2.0",
+    "martinalebachew/Copernico",
+    branch = "ui",
     lazy = false,
   },
 
