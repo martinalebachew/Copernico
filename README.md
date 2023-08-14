@@ -25,3 +25,6 @@ mv ~/.config/nvim ~/.config/nvim.backup &> /dev/null
 rm -rf ~/.local/share/nvim
 git clone https://github.com/martinalebachew/Copernico ~/.config/nvim --depth 1 && nv
 ```
+
+### Configure Copilot
+GitHub Copilot plugin for NeoVim comes preinstalled with Copernico. It is recommended to invoke `:Copilot setup` to finalize installation.
