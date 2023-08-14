@@ -23,5 +23,5 @@ Manual configuration:
 rm -rf ~/.config/nvim.backup
 mv ~/.config/nvim ~/.config/nvim.backup &> /dev/null
 rm -rf ~/.local/share/nvim
-git clone https://github.com/martinalebachew/NvConfig ~/.config/nvim --depth 1 && nv
+git clone https://github.com/martinalebachew/Copernico ~/.config/nvim --depth 1 && nv
 ```
