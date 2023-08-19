@@ -9,7 +9,6 @@ the following adjustments:
 * Syntax highlighting for many of my favorite languages.
 * Updated post-installation readme buffer.
 
-Installation scripts will be added in the near future. In the meanwhile, enjoy this MacOS guide:
 
 ## macOS Configuration Guide
 
