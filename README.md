@@ -20,6 +20,7 @@ You'll have to use iTerm2 since the macOS terminal has insufficient color suppor
 
 ### Set up aliases
 ```
+alias nv=nvim
 echo 'alias nv=nvim' >> ~/.zshrc
 ```
 
