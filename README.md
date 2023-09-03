@@ -25,7 +25,7 @@ rm -rf ~/.tmux.conf.backup ~/.tmux/plugins/tpm ~/.tmux/config-git
 mv ~/.tmux.conf ~/.tmux.conf.backup &> /dev/null
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
-git clone -b tmux-conf https://github.com/martinalebachew/Copernico ~/.tmux-git --depth 1
+git clone -b patches https://github.com/martinalebachew/Copernico ~/.tmux-git --depth 1
 cp ~/.tmux-git/.tmux.conf ~/.tmux.conf
 rm -rf ~/.tmux/config-git
 ```
