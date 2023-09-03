@@ -17,7 +17,6 @@ the following adjustments:
 ```
 brew install iterm2 neovim tmux
 ```
-* Please install the [Tmux Plugin Manager](https://github.com/tmux-plugins/tpm) manually.
 * You'll have to use iTerm2 since the macOS terminal has insufficient color support.
 
 ## Install TPM and VTN (Tmux-side)
