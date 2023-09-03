@@ -14,9 +14,10 @@ the following adjustments:
 
 ### Install prerequisites
 ```
-brew install iterm2 neovim
+brew install iterm2 neovim tmux
 ```
-You'll have to use iTerm2 since the macOS terminal has insufficient color support.
+* Please install the [Tmux Plugin Manager](https://github.com/tmux-plugins/tpm) manually.
+* You'll have to use iTerm2 since the macOS terminal has insufficient color support.
 
 ### Set up aliases
 ```
@@ -26,7 +27,7 @@ echo 'alias nv=nvim' >> ~/.zshrc
 
 ### Set up iTerm2
 Manual configuration:
-* Install the [JetBrainsMono Font](https://www.jetbrains.com/lp/mono/) and set it as the default terminal font.
+* Install the [JetBrainsMono Font](https://www.jetbrains.com/lp/mono) and set it as the default terminal font.
 * Choose JetbrainsMono Nerd Font and **not** ~~JetbrainsMono Nerd Font Mono~~ to avoid small icons.
 * Change default font size to 20pt.
 * Using the menu bar, lick iTerm2 > Make iTerm2 Default Term.
