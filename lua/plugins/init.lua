@@ -267,6 +267,12 @@ local default_plugins = {
     "github/copilot.vim",
     lazy = false,
   },
+
+  -- Vim Tmux Navigator
+  {
+    "christoomey/vim-tmux-navigator",
+    lazy = false,
+  },
 }
 
 local config = require("core.utils").load_config()
