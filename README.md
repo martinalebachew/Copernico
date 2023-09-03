@@ -19,7 +19,7 @@ brew install iterm2 neovim tmux
 ```
 * You'll have to use iTerm2 since the macOS terminal has insufficient color support.
 
-## Install TPM and configure Tmux
+### Install TPM and configure Tmux
 ```
 rm -rf ~/.tmux.conf.backup ~/.tmux/plugins/tpm ~/.tmux/config-git
 mv ~/.tmux.conf ~/.tmux.conf.backup &> /dev/null
