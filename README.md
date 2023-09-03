@@ -19,19 +19,15 @@ brew install iterm2 neovim tmux
 ```
 * You'll have to use iTerm2 since the macOS terminal has insufficient color support.
 
-## Install TPM and VTN (Tmux-side)
+## Install TPM and configure Tmux
 ```
-rm -rf ~/.tmux.conf.backup ~/.tmux/plugins/tpm
+rm -rf ~/.tmux.conf.backup ~/.tmux/plugins/tpm ~/.tmux/config-git
 mv ~/.tmux.conf ~/.tmux.conf.backup &> /dev/null
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
-echo "bind -n M-H previous-window" >> ~/.tmux.conf
-echo "bind -n M-L next-window" >> ~/.tmux.conf
-
-echo "set -g @plugin 'tmux-plugins/tpm'" >> ~/.tmux.conf
-echo "set -g @plugin 'tmux-plugins/tmux-sensible'" >> ~/.tmux.conf
-echo "set -g @plugin 'christoomey/vim-tmux-navigator'" >> ~/.tmux.conf
-echo "run '~/.tmux/plugins/tpm/tpm'" >> ~/.tmux.conf
+git clone -b tmux-conf https://github.com/martinalebachew/Copernico ~/.tmux-git --depth 1
+cp ~/.tmux-git/.tmux.conf ~/.tmux.conf
+rm -rf ~/.tmux/config-git
 ```
 
 ### Set up aliases
