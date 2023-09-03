@@ -8,6 +8,7 @@ the following adjustments:
 * GitHub Copilot NeoVim plugin pre-installed.
 * Syntax highlighting for many of my favorite languages.
 * Updated post-installation readme buffer.
+* Tmux, TPM and Vim Tmux Navigator included.
 
 
 ## macOS Configuration Guide
