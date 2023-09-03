@@ -24,6 +24,10 @@ brew install iterm2 neovim tmux
 rm -rf ~/.tmux.conf.backup ~/.tmux/plugins/tpm
 mv ~/.tmux.conf ~/.tmux.conf.backup &> /dev/null
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
+echo "bind -n M-H previous-window" >> ~/.tmux.conf
+echo "bind -n M-L next-window" >> ~/.tmux.conf
+
 echo "set -g @plugin 'tmux-plugins/tpm'" >> ~/.tmux.conf
 echo "set -g @plugin 'tmux-plugins/tmux-sensible'" >> ~/.tmux.conf
 echo "set -g @plugin 'christoomey/vim-tmux-navigator'" >> ~/.tmux.conf
