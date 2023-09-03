@@ -1,5 +1,5 @@
 # Copernico 🤔
-Copernico is my NeoVim configuration based on NvChad and tailored to my specific needs and preferences. It's compatible with MacOS, Linux & Windows and includes
+Copernico is my NeoVim and Tmux configuration, based on NvChad and tailored to my specific needs and preferences. It's compatible with MacOS, Linux & Windows and includes
 the following adjustments:
 
 * No example configuration prompt.
