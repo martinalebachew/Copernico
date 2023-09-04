@@ -24,7 +24,13 @@ def patch_nvchad():
       exit()
 
 
+def install_tpm():
+  remove_directory("~/.tmux/plugins/tpm")
+  clone("tmux-plugins/tpm", "~/.tmux/plugins/tpm")
+
+
 def main():
+  install_tpm()
   install_nvchad()
   patch_nvchad()
 
