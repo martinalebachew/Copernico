@@ -5,6 +5,7 @@ from patches import patches
 NVIM_DIR = resolve_path("~/.config/nvim")
 NVIM_BACKUP_DIR = resolve_path("~/.config/nvim.backup")
 NVIM_DATA_DIR = resolve_path("~/.local/share/nvim")
+TPM_DIR = resolve_path("~/.tmux/plugins/tpm")
 
 
 def install_nvchad():
@@ -25,8 +26,8 @@ def patch_nvchad():
 
 
 def install_tpm():
-  remove_directory("~/.tmux/plugins/tpm")
-  clone("tmux-plugins/tpm", "~/.tmux/plugins/tpm")
+  remove_directory(TPM_DIR)
+  clone("tmux-plugins/tpm", TPM_DIR)
 
 
 def main():
