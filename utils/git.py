@@ -6,7 +6,7 @@ def clone(github_specifier, path, branch="main", shallow=False):
   path = resolve_path(path)
   url = f"https://github.com/{github_specifier}"
 
-  git_command = f"git clone --progress {url} {path}"
+  git_command = f"git clone --progress -b {branch} {url} {path}"
   git_command += " --depth 1" if shallow else ""
   git = Popen(git_command, shell=True, stdout=PIPE, stderr=STDOUT, text=True)
   
