@@ -3,6 +3,7 @@ from utils.patching import replace_lines
 
 NAME = "No Example Configuration Prompt"
 
+
 old_block = r"""
   if fn.isdirectory(path) ~= 1 then
     local input = fn.input "Do you want to install example custom config? (y/N): "
@@ -24,6 +25,7 @@ old_block = r"""
   end
 """
 
+
 new_block = r"""
   if fn.isdirectory(path) ~= 1 then
     -- use very minimal chadrc
@@ -36,6 +38,7 @@ new_block = r"""
     end
   end
 """
+
 
 def patch(nvim_dir):
   bootstrap_file = join(nvim_dir, "lua/core/bootstrap.lua")

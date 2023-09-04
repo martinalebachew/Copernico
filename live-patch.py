@@ -6,6 +6,7 @@ nvim_dir = resolve_path("~/.config/nvim")
 nvim_dir_backup = resolve_path("~/.config/nvim.backup")
 nvim_data_dir = resolve_path("~/.local/share/nvim")
 
+
 def install_nvchad():
   remove_directory(nvim_dir_backup)
   move(nvim_dir, nvim_dir_backup)
