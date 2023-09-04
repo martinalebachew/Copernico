@@ -1,4 +1,5 @@
 import shutil
+from os.path import expanduser
 from utils.logging import *
 
 def remove_directory(path, ignore_file_not_found=True):
@@ -24,3 +25,6 @@ def move(source, destination, ignore_file_not_found=True):
     
   print_success(f"Successfully moved {source} -> {destination}")
   
+
+def resolve_path(path):
+  return path.replace("~", expanduser("~"))
