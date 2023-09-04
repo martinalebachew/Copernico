@@ -13,7 +13,7 @@ def replace_lines(path, old_block, new_block):
   new_block = format_newlines(new_block[1:-1])
   
   if old_block not in contents:
-    raise LookupError
+    raise LookupError(f"Find and replace operation failed on file {path}")
   
   with open(path, "w") as file:
     file.write(contents.replace(old_block, new_block))
