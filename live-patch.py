@@ -1,5 +1,6 @@
 from utils.fs import *
 from utils.git import *
+from patches import patches
 
 nvim_dir = resolve_path("~/.config/nvim")
 nvim_dir_backup = resolve_path("~/.config/nvim.backup")
@@ -13,8 +14,13 @@ def install_nvchad():
 
 
 def patch_nvchad():
-  for patch in patches.methods:
-    patch()
+  for patch in patches:
+    try:
+      patch.run(nvim_dir)
+      print_success(f"Applied patch: {patch.name} ({patch.file})")
+    except:
+      print_error(f"Failed to apply patch: {patch.name} ({patch.file})")
+      exit()
 
 
 def main():
