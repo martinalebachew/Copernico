@@ -1,18 +1,29 @@
-import shutil
-from os.path import expanduser
+import shutil, os
 from utils.logging import *
 
 def remove_directory(path, ignore_file_not_found=True):
+  __remove_impl(path, ignore_file_not_found, directory=True)
+
+
+def remove_file(path, ignore_file_not_found=True):
+  __remove_impl(path, ignore_file_not_found, directory=False)
+
+
+def __remove_impl(path, ignore_file_not_found, directory):
   try:
-    shutil.rmtree(path)
+    if directory:
+      shutil.rmtree(path)
+    else:
+      os.remove(path)
+
     print_success(f"Successfully removed {path}")
 
   except Exception as error:
-    if not (isinstance(error, FileNotFoundError) and ignore_file_not_found):
+    if isinstance(error, FileNotFoundError) and ignore_file_not_found:
+      print_notice(f"Skipped removing {path}")
+    else:
       print_error(f"Failed to remove {path}")
       exit()
-    else:
-      print_notice(f"Skipped removing {path}")
 
 
 def move(source, destination, ignore_file_not_found=True):
@@ -21,12 +32,25 @@ def move(source, destination, ignore_file_not_found=True):
     print_success(f"Successfully moved {source} -> {destination}")
 
   except Exception as error:
-    if not (isinstance(error, FileNotFoundError) and ignore_file_not_found):
+    if isinstance(error, FileNotFoundError) and ignore_file_not_found:
+      print_notice(f"Skipped moving {source} -> {destination}")
+    else:
       print_error(f"Failed to move {source} -> {destination}")
       exit()
+
+
+def copy_file(source, destination, ignore_file_not_found=True):
+  try:
+    shutil.copyfile(source, destination)
+    print_success(f"Successfully copied {source} -> {destination}")
+
+  except Exception as error:
+    if isinstance(error, FileNotFoundError) and ignore_file_not_found:
+      print_notice(f"Skipped copying {source} -> {destination}")
     else:
-      print_notice(f"Skipped moving {source} -> {destination}")
+      print_error(f"Failed to copy {source} -> {destination}")
+      exit()
 
 
 def resolve_path(path):
-  return path.replace("~", expanduser("~"))
+  return path.replace("~", os.path.expanduser("~"))
