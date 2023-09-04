@@ -13,3 +13,8 @@ def print_error(statement):
 
 def print_success(statement):
   print_color(statement, Fore.GREEN)
+
+
+def print_notice(statement):
+  print_color(statement, Fore.YELLOW)
+
