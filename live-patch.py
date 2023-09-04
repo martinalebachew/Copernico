@@ -6,6 +6,8 @@ NVIM_DIR = resolve_path("~/.config/nvim")
 NVIM_BACKUP_DIR = resolve_path("~/.config/nvim.backup")
 NVIM_DATA_DIR = resolve_path("~/.local/share/nvim")
 TPM_DIR = resolve_path("~/.tmux/plugins/tpm")
+TMUX_CONF = resolve_path("~/.tmux.conf")
+TMUX_CONF_BACKUP = resolve_path("~/.tmux.conf.backup")
 
 
 def install_nvchad():
@@ -30,8 +32,15 @@ def install_tpm():
   clone("tmux-plugins/tpm", TPM_DIR)
 
 
+def configure_tmux():
+  remove_file(TMUX_CONF_BACKUP)
+  move(TMUX_CONF, TMUX_CONF_BACKUP)
+  copy_file("assets/.tmux.conf", TMUX_CONF, ignore_file_not_found=False)
+
+
 def main():
   install_tpm()
+  configure_tmux()
   install_nvchad()
   patch_nvchad()
 
