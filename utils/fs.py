@@ -3,6 +3,8 @@ from os.path import expanduser
 from utils.logging import *
 
 def remove_directory(path, ignore_file_not_found=True):
+  path = resolve_path(path)
+
   try:
     shutil.rmtree(path)
 
@@ -15,6 +17,9 @@ def remove_directory(path, ignore_file_not_found=True):
 
 
 def move(source, destination, ignore_file_not_found=True):
+  source = resolve_path(source)
+  destination = resolve_path(destination)
+
   try:
     shutil.move(source, destination)
 
