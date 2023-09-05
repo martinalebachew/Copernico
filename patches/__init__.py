@@ -1,5 +1,5 @@
 from glob import glob
-from patches.format import Patch
+from patches.patch import Patch
 from importlib import import_module
 from os.path import dirname, basename, isfile, join
 
