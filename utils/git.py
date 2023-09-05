@@ -15,3 +15,24 @@ def clone(github_specifier, path, branch=None, shallow=False):
   else:
     print_error(f"Failed to clone {url} -> {path}")
     exit()
+
+  
+def __get_commit_hash_impl(git_command):
+  git = Popen(git_command, shell=True, stdout=PIPE, stderr=STDOUT, text=True)
+  output = git.stdout.read().strip()
+
+  if len(output) == 7:
+    return output
+  else:
+    print_error(f"Failed to get local last commit hash!")
+    exit()
+
+
+def get_local_last_commit_hash():
+  git_command = "git log -n1 --format=\"%h\""
+  return __get_commit_hash_impl(git_command)
+
+
+def get_remote_last_commit_hash():
+  git_command = "git rev-parse --short HEAD"
+  return __get_commit_hash_impl(git_command)
