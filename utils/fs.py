@@ -16,7 +16,7 @@ def __remove_impl(path, ignore_file_not_found, directory):
     else:
       os.remove(path)
 
-    print_success(f"Successfully removed {path}")
+    print_success(f"Removed {path}")
 
   except Exception as error:
     if isinstance(error, FileNotFoundError) and ignore_file_not_found:
@@ -29,7 +29,7 @@ def __remove_impl(path, ignore_file_not_found, directory):
 def move(source, destination, ignore_file_not_found=True):
   try:
     shutil.move(source, destination)
-    print_success(f"Successfully moved {source} -> {destination}")
+    print_success(f"Moved {source} -> {destination}")
 
   except Exception as error:
     if isinstance(error, FileNotFoundError) and ignore_file_not_found:
@@ -42,7 +42,7 @@ def move(source, destination, ignore_file_not_found=True):
 def copy_file(source, destination, ignore_file_not_found=True):
   try:
     shutil.copyfile(source, destination)
-    print_success(f"Successfully copied {source} -> {destination}")
+    print_success(f"Copied {source} -> {destination}")
 
   except Exception as error:
     if isinstance(error, FileNotFoundError) and ignore_file_not_found:

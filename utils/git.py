@@ -11,7 +11,7 @@ def clone(github_specifier, path, branch=None, shallow=False):
   git = Popen(git_command, shell=True, stdout=PIPE, stderr=STDOUT, text=True)
   
   if git.stdout.read().endswith("done.\n"):
-    print_success(f"Successfully cloned {url} -> {path}")
+    print_success(f"Cloned {url} -> {path}")
   else:
     print_error(f"Failed to clone {url} -> {path}")
     exit()
