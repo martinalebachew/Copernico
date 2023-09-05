@@ -23,7 +23,7 @@ def clone(github_specifier, path, branch=None, shallow=False):
 
 def fetch_remote():
   git_command = "git fetch"
-  git = Popen(git_command, shell=True, stdout=None, stderr=STDOUT)
+  git = Popen(git_command, shell=True, stdout=PIPE, stderr=STDOUT)
   git.wait()
 
   if git.returncode != 0:
