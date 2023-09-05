@@ -1,6 +1,9 @@
 from subprocess import Popen, PIPE, STDOUT
 from utils.logging import *
 
+GIT_COMMIT_HASH_LENGTH = 40
+
+
 def clone(github_specifier, path, branch=None, shallow=False):
   url = f"https://github.com/{github_specifier}"
 
@@ -21,18 +24,18 @@ def __get_commit_hash_impl(git_command):
   git = Popen(git_command, shell=True, stdout=PIPE, stderr=STDOUT, text=True)
   output = git.stdout.read().strip()
 
-  if len(output) == 7:
+  if len(output) == GIT_COMMIT_HASH_LENGTH:
     return output
   else:
-    print_error(f"Failed to get local last commit hash!")
+    print_error(f"Failed to parse commit hash!")
     exit()
 
 
 def get_local_last_commit_hash():
-  git_command = "git log -n1 --format=\"%h\""
+  git_command = "git rev-parse HEAD"
   return __get_commit_hash_impl(git_command)
 
 
 def get_remote_last_commit_hash():
-  git_command = "git rev-parse --short HEAD"
+  git_command = "git rev-parse origin"
   return __get_commit_hash_impl(git_command)
