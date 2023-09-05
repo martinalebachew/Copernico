@@ -20,6 +20,15 @@ def clone(github_specifier, path, branch=None, shallow=False):
     print_error(f"Failed to clone {url} -> {path}")
     exit()
 
+
+def fetch_remote():
+  git_command = "git fetch"
+  git = Popen(git_command, shell=True)
+
+  if git.returncode != 0:
+    print_error(f"Failed to fetch remote")
+    exit()
+
   
 def __get_commit_hash_impl(git_command):
   git = Popen(git_command, shell=True, stdout=PIPE, stderr=STDOUT, text=True)
