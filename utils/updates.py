@@ -5,5 +5,9 @@ def check_for_updates():
   remote = get_remote_last_commit_hash()
 
   if (local != remote):
-    print_error(f"Updates are available! Please pull the latest changes and try again ({local}, {remote})")
+    short_local = local[:SHORT_COMMIT_HASH_LENGTH]
+    short_remote = remote[:SHORT_COMMIT_HASH_LENGTH]
+    
+    print_error(f"Updates are available! Please pull the latest changes and try again")
+    print_error(f"{short_local} < {short_remote}")
     exit()
