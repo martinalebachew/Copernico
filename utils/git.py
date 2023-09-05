@@ -48,5 +48,6 @@ def get_local_last_commit_hash():
 
 
 def get_remote_last_commit_hash():
+  fetch_remote()
   git_command = "git rev-parse origin"
   return __get_commit_hash_impl(git_command)
