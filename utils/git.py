@@ -24,6 +24,7 @@ def clone(github_specifier, path, branch=None, shallow=False):
 def fetch_remote():
   git_command = "git fetch"
   git = Popen(git_command, shell=True)
+  git.wait()
 
   if git.returncode != 0:
     print_error(f"Failed to fetch remote")
