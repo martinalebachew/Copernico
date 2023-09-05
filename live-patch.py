@@ -38,7 +38,7 @@ def configure_tmux():
   copy_file("assets/.tmux.conf", TMUX_CONF, ignore_file_not_found=False)
 
 
-def main():
+def live_patch():
   install_tpm()
   configure_tmux()
   install_nvchad()
@@ -46,4 +46,4 @@ def main():
 
 
 if __name__ == "__main__":
-  main()
+  live_patch()
