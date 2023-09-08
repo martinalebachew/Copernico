@@ -1,29 +1,22 @@
 from utils.fs import *
 from utils.git import *
 from utils.shell import *
+import shared.tpm as tpm
+import shared.tmux as tmux
+import shared.nvim as nvim
 from patches import patches
 
-NVIM_DIR = resolve_path("~/.config/nvim")
-NVIM_BACKUP_DIR = resolve_path("~/.config/nvim.backup")
-NVIM_DATA_DIR = resolve_path("~/.local/share/nvim")
-TMUX_CONF = resolve_path("~/.tmux.conf")
-TMUX_CONF_BACKUP = resolve_path("~/.tmux.conf.backup")
-TPM_DIR = resolve_path("~/.tmux/plugins/tpm")
-TPM_PLUGINS_DIR = resolve_path("~/.tmux/plugins")
-TPM_INSTALL_SCRIPT = resolve_path("~/.tmux/plugins/tpm/scripts/install_plugins.sh")
-
-
 def install_nvchad():
-  remove_directory(NVIM_BACKUP_DIR)
-  move(NVIM_DIR, NVIM_BACKUP_DIR)
-  remove_directory(NVIM_DATA_DIR)
-  clone("NvChad/NvChad", NVIM_DIR, shallow=True)
+  remove_directory(nvim.backup_dir)
+  move(nvim.default_dir, nvim.backup_dir)
+  remove_directory(nvim.data_dir)
+  clone(nvim.nvchad_repo, nvim.default_dir, shallow=True)
 
 
 def patch_nvchad():
   for patch in patches:
     try:
-      patch.run(NVIM_DIR)
+      patch.run(nvim.default_dir)
       print_success(f"Applied patch: {patch.name} ({patch.file})")
     except:
       print_error(f"Failed to apply patch: {patch.name} ({patch.file})")
@@ -31,21 +24,21 @@ def patch_nvchad():
 
 
 def install_tpm():
-  remove_directory(TPM_PLUGINS_DIR)
-  clone("tmux-plugins/tpm", TPM_DIR)
+  remove_directory(tpm.plugins_dir)
+  clone(tpm.repo, tpm.default_dir)
 
 
 def install_tmux_plugins():
-  output = run_script(TPM_INSTALL_SCRIPT)
+  output = run_script(tpm.plugins_script)
   if "fail" in output:
     print_error("Failed to install Tmux plugins")
     exit()
 
 
 def configure_tmux():
-  remove_file(TMUX_CONF_BACKUP)
-  move(TMUX_CONF, TMUX_CONF_BACKUP)
-  copy_file("assets/.tmux.conf", TMUX_CONF, ignore_file_not_found=False)
+  remove_file(tmux.conf_backup)
+  move(tmux.conf_file, tmux.conf_backup)
+  copy_file(tmux.conf_source, tmux.conf_file, ignore_file_not_found=False)
   install_tmux_plugins()
 
 
