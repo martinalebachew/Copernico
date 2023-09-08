@@ -1,4 +1,4 @@
-from subprocess import Popen, PIPE, STDOUT
+from utils.shell import run_shell
 from utils.logging import *
 
 COMMIT_HASH_LENGTH = 40
@@ -12,9 +12,9 @@ def clone(github_specifier, path, branch=None, shallow=False):
   git_command += " --progress"
   git_command += f" --branch {branch}" if branch else ""
   git_command += " --depth 1" if shallow else ""
-  git = Popen(git_command, shell=True, stdout=PIPE, stderr=STDOUT, text=True)
+  _, output = run_shell(git_command)
   
-  if git.stdout.read().endswith("done.\n"):
+  if output.endswith("done.\n"):
     print_success(f"Cloned {url} -> {path}")
   else:
     print_error(f"Failed to clone {url} -> {path}")
@@ -23,17 +23,16 @@ def clone(github_specifier, path, branch=None, shallow=False):
 
 def fetch_remote():
   git_command = "git fetch"
-  git = Popen(git_command, shell=True, stdout=PIPE, stderr=STDOUT)
-  git.wait()
+  return_code, _ = run_shell(git_command)
 
-  if git.returncode != 0:
+  if return_code != 0:
     print_error(f"Failed to fetch remote")
     exit()
 
   
 def __get_commit_hash_impl(git_command):
-  git = Popen(git_command, shell=True, stdout=PIPE, stderr=STDOUT, text=True)
-  output = git.stdout.read().strip()
+  _, output = run_shell(git_command)
+  output = output.strip()
 
   if len(output) == COMMIT_HASH_LENGTH:
     return output
