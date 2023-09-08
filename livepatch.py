@@ -10,7 +10,7 @@ TMUX_CONF = resolve_path("~/.tmux.conf")
 TMUX_CONF_BACKUP = resolve_path("~/.tmux.conf.backup")
 TPM_DIR = resolve_path("~/.tmux/plugins/tpm")
 TPM_PLUGINS_DIR = resolve_path("~/.tmux/plugins")
-TPM_UPDATE_SCRIPT = resolve_path("~/.tmux/plugins/tpm/scripts/update_plugin.sh")
+TPM_INSTALL_SCRIPT = resolve_path("~/.tmux/plugins/tpm/scripts/install_plugins.sh")
 
 
 def install_nvchad():
@@ -35,11 +35,18 @@ def install_tpm():
   clone("tmux-plugins/tpm", TPM_DIR)
 
 
+def install_tmux_plugins():
+  output = run_script(TPM_INSTALL_SCRIPT)
+  if "fail" in output:
+    print_error("Failed to install Tmux plugins")
+    exit()
+
+
 def configure_tmux():
   remove_file(TMUX_CONF_BACKUP)
   move(TMUX_CONF, TMUX_CONF_BACKUP)
   copy_file("assets/.tmux.conf", TMUX_CONF, ignore_file_not_found=False)
-  run_script(TPM_UPDATE_SCRIPT)
+  install_tmux_plugins()
 
 
 def livepatch():
