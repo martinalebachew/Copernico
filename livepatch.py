@@ -1,5 +1,6 @@
 from utils.fs import *
 from utils.git import *
+from utils.shell import *
 from patches import patches
 
 NVIM_DIR = resolve_path("~/.config/nvim")
@@ -9,6 +10,7 @@ TMUX_CONF = resolve_path("~/.tmux.conf")
 TMUX_CONF_BACKUP = resolve_path("~/.tmux.conf.backup")
 TPM_DIR = resolve_path("~/.tmux/plugins/tpm")
 TPM_PLUGINS_DIR = resolve_path("~/.tmux/plugins")
+TPM_UPDATE_SCRIPT = resolve_path("~/.tmux/plugins/tpm/scripts/update_plugin.sh")
 
 
 def install_nvchad():
@@ -37,6 +39,7 @@ def configure_tmux():
   remove_file(TMUX_CONF_BACKUP)
   move(TMUX_CONF, TMUX_CONF_BACKUP)
   copy_file("assets/.tmux.conf", TMUX_CONF, ignore_file_not_found=False)
+  run_script(TPM_UPDATE_SCRIPT)
 
 
 def livepatch():
