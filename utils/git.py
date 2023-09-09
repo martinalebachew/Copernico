@@ -30,7 +30,7 @@ def fetch_remote():
     exit()
 
   
-def __get_commit_hash_impl(git_command):
+def __commit_hash_impl(git_command):
   _, output = run_shell(git_command)
   output = output.strip()
 
@@ -41,12 +41,12 @@ def __get_commit_hash_impl(git_command):
     exit()
 
 
-def get_local_last_commit_hash():
+def local_last_commit_hash():
   git_command = "git rev-parse HEAD"
-  return __get_commit_hash_impl(git_command)
+  return __commit_hash_impl(git_command)
 
 
-def get_remote_last_commit_hash():
+def remote_last_commit_hash():
   fetch_remote()
   git_command = "git rev-parse origin"
-  return __get_commit_hash_impl(git_command)
+  return __commit_hash_impl(git_command)
