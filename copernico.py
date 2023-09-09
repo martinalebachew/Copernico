@@ -14,6 +14,10 @@ def install_copernico():
   check_for_updates()
   check_prerequisites()
   livepatch()
+  
+  clear_terminal()
+  print_success("Copernico was installed successfully!")
+
 
 if __name__ == "__main__":
   install_copernico()

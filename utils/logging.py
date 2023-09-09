@@ -18,3 +18,6 @@ def print_success(statement):
 def print_notice(statement):
   print_color(statement, Fore.YELLOW)
 
+
+def clear_terminal():
+  print("\033[H\033[J", end="")
