@@ -2,6 +2,8 @@
 Copernico is my terminal configuration, based on NvChad and Tmux.
 It is currently compatible with MacOS & Linux.
 
+![](images/terminal.png)
+
 ### Main Features
 * Previous configuration backup
 * Catppuccin theme for Tmux and Neovim
