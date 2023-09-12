@@ -1,5 +1,6 @@
 from os.path import join
 from utils.patching import replace_lines
+import shared.nvim as nvim
 
 NAME = "Enhanced Syntax Highlighting"
 
@@ -19,6 +20,6 @@ new_options_block = r"""
 """
 
 
-def patch(nvim_dir):
-  treesitter_file = join(nvim_dir, "lua/plugins/configs/treesitter.lua")
+def patch(nvim.default_dir):
+  treesitter_file = join(nvim.default_dir, "lua/plugins/configs/treesitter.lua")
   replace_lines(treesitter_file, old_options_block, new_options_block)

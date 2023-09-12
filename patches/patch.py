@@ -4,5 +4,5 @@ class Patch:
     self.name = name
     self.patch_method = patch_method
 
-  def run(self, nvim_dir):
-    self.patch_method(nvim_dir)
+  def run(self):
+    self.patch_method()

@@ -1,5 +1,6 @@
 from os.path import join
 from utils.patching import replace_lines
+import shared.nvim as nvim
 
 NAME = "No Example Configuration Prompt"
 
@@ -36,7 +37,7 @@ end
 """
 
 
-def patch(nvim_dir):
-  bootstrap_file = join(nvim_dir, "lua/core/bootstrap.lua")
+def patch(nvim.default_dir):
+  bootstrap_file = join(nvim.default_dir, "lua/core/bootstrap.lua")
   replace_lines(bootstrap_file, old_prompt_block, new_prompt_block)
   replace_lines(bootstrap_file, old_end_sequence, new_end_sequence)

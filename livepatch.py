@@ -16,7 +16,7 @@ def install_nvchad():
 def patch_nvchad():
   for patch in patches:
     try:
-      patch.run(nvim.default_dir)
+      patch.run()
       print_success(f"Applied patch: {patch.name} ({patch.file})")
     except:
       print_error(f"Failed to apply patch: {patch.name} ({patch.file})")

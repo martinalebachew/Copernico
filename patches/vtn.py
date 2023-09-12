@@ -1,5 +1,6 @@
 from os.path import join
 from utils.patching import replace_lines
+import shared.nvim as nvim
 
 NAME = "Vim Tmux Navigator Plugin"
 
@@ -38,9 +39,9 @@ new_mappings_block = r"""
 """
 
 
-def patch(nvim_dir):
-  plugins_file = join(nvim_dir, "lua/plugins/init.lua")
+def patch(nvim.default_dir):
+  plugins_file = join(nvim.default_dir, "lua/plugins/init.lua")
   replace_lines(plugins_file, old_plugins_closure, new_plugins_closure)
 
-  mappings_file = join(nvim_dir, "lua/core/mappings.lua")
+  mappings_file = join(nvim.default_dir, "lua/core/mappings.lua")
   replace_lines(mappings_file, old_mappings_block, new_mappings_block)

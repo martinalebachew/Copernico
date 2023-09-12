@@ -1,7 +1,7 @@
 from os.path import join
 from utils.patching import replace_lines
 from utils.git import clone
-from utils.fs import *
+import shared.nvim as nvim
 
 NAME = "Update Post Install Buffer"
 
@@ -84,11 +84,11 @@ new_post_install_buffer = r"""
 """
 
 
-def patch(nvim_dir):
-  ui_dir = join(nvim_dir, "ui_plugin")
+def patch(nvim.default_dir):
+  ui_dir = join(nvim.default_dir, "ui_plugin")
   clone("NvChad/ui", ui_dir)
 
-  plugins_file = join(nvim_dir, "lua/plugins/init.lua")
+  plugins_file = join(nvim.default_dir, "lua/plugins/init.lua")
   new_ui_plugin = new_ui_plugin_template.replace("ui_dir", ui_dir)
   replace_lines(plugins_file, old_ui_plugin, new_ui_plugin)
 

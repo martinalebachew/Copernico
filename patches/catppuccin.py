@@ -1,5 +1,6 @@
 from os.path import join
 from utils.patching import replace_lines
+import shared.nvim as nvim
 
 NAME = "Set Theme To Catppuccin"
 
@@ -24,9 +25,9 @@ new_defaults_block = r"""
 """
 
 
-def patch(nvim_dir):
-  bootstrap_file = join(nvim_dir, "lua/core/bootstrap.lua")
+def patch(nvim.default_dir):
+  bootstrap_file = join(nvim.default_dir, "lua/core/bootstrap.lua")
   replace_lines(bootstrap_file, old_bootstrap_block, new_bootstrap_block)
 
-  defaults_file = join(nvim_dir, "lua/core/default_config.lua")
+  defaults_file = join(nvim.default_dir, "lua/core/default_config.lua")
   replace_lines(defaults_file, old_defaults_block, new_defaults_block)
