@@ -5,7 +5,7 @@ from shared.nvim import mininum_version
 
 def get_nvim_version():
   _, output = run_shell("nvim --version")
-  version_string = output.splitlines()[0].split("NVIM v")[0]
+  version_string = output.splitlines()[0].split("NVIM v")[1]
   version = parse_version(version_string)
   return version
 
