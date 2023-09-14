@@ -5,4 +5,4 @@ backup_dir = resolve_path("~/.config/nvim.backup")
 data_dir = resolve_path("~/.local/share/nvim")
 nvchad_repo = "NvChad/NvChad"
 
-mininum_version = "0.9.0"
+mininum_version_string = "0.9.0"
