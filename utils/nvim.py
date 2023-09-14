@@ -14,5 +14,5 @@ def check_nvim_version():
   current_version = get_nvim_version()
   mininum_version = Version(mininum_version_string)
   if not is_version_sufficient(current_version, mininum_version):
-    print_error(f"Minimum required version of Neovim is {mininum_version}")
+    print_error(f"Minimum required version of Neovim is {mininum_version_string}")
     exit()
