@@ -20,6 +20,6 @@ new_options_block = r"""
 """
 
 
-def patch(nvim.default_dir):
+def patch():
   treesitter_file = join(nvim.default_dir, "lua/plugins/configs/treesitter.lua")
   replace_lines(treesitter_file, old_options_block, new_options_block)

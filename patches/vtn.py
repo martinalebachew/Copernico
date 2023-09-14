@@ -39,7 +39,7 @@ new_mappings_block = r"""
 """
 
 
-def patch(nvim.default_dir):
+def patch():
   plugins_file = join(nvim.default_dir, "lua/plugins/init.lua")
   replace_lines(plugins_file, old_plugins_closure, new_plugins_closure)
 

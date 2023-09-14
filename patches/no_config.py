@@ -37,7 +37,7 @@ end
 """
 
 
-def patch(nvim.default_dir):
+def patch():
   bootstrap_file = join(nvim.default_dir, "lua/core/bootstrap.lua")
   replace_lines(bootstrap_file, old_prompt_block, new_prompt_block)
   replace_lines(bootstrap_file, old_end_sequence, new_end_sequence)

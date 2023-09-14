@@ -25,7 +25,7 @@ new_defaults_block = r"""
 """
 
 
-def patch(nvim.default_dir):
+def patch():
   bootstrap_file = join(nvim.default_dir, "lua/core/bootstrap.lua")
   replace_lines(bootstrap_file, old_bootstrap_block, new_bootstrap_block)
 

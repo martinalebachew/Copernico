@@ -84,7 +84,7 @@ new_post_install_buffer = r"""
 """
 
 
-def patch(nvim.default_dir):
+def patch():
   ui_dir = join(nvim.default_dir, "ui_plugin")
   clone("NvChad/ui", ui_dir)
 
