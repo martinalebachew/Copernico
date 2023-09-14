@@ -53,7 +53,7 @@ def copy_file(source, destination, ignore_file_not_found=True):
 
 
 def resolve_path(path):
-  return path.replace("~", os.path.expanduser("~"))
+  return os.path.expanduser(path)
 
 
 def exec_path(exec_name):
