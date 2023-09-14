@@ -10,9 +10,9 @@ class Version:
 def parse_version(version_string):
   try:
     version = version_string.split(".")
-    major = int(version_string[0])
-    minor = int(version_string[1])
-    patch = int(version_string[2])
+    major = int(version[0])
+    minor = int(version[1])
+    patch = int(version[2])
 
   except:
     print_error("Failed to parse version")
