@@ -1,22 +1,16 @@
 from utils.logging import *
 
 class Version:
-  def __init__(self, major, minor, patch):
-    self.major = major
-    self.minor = minor
-    self.patch = patch
-
-
-def parse_version(version_string):
-  try:
-    version = version_string.split(".")
-    major = int(version[0])
-    minor = int(version[1])
-    patch = int(version[2])
-
-  except:
-    print_error("Failed to parse version")
-    exit()
+  def __init__(self, version_string):
+    try:
+      version = version_string.split(".")
+      self.major = int(version[0])
+      self.minor = int(version[1])
+      self.patch = int(version[2])
+      
+    except:
+      print_error("Failed to parse version")
+      exit()
 
 
 def is_version_sufficient(current, minimum):
