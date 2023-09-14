@@ -1,5 +1,6 @@
 from utils.updates import *
 from utils.fs import *
+from utils.logging import *
 from shared.prerequisites import *
 from livepatch import livepatch
 
@@ -7,12 +8,13 @@ def check_prerequisites():
   for (exec, name) in prerequistes:
     if exec_path(exec) is None:
       print_error(f"Unfulfilled prerequisite: {name}")
-      exit(0)
+      exit()
 
 
 def install_copernico():
   check_for_updates()
   check_prerequisites()
+  check_nvim_version()
   livepatch()
   
   clear_terminal()
