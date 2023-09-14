@@ -1,6 +1,7 @@
 from utils.updates import *
 from utils.fs import *
 from utils.logging import *
+from utils.nvim import *
 from shared.prerequisites import *
 from livepatch import livepatch
 
