@@ -11,6 +11,8 @@ def check_prerequisites():
       print_error(f"Unfulfilled prerequisite: {name}")
       exit()
 
+  print_success("All prerequisites installed")
+
 
 def install_copernico():
   check_for_updates()
