@@ -7,7 +7,7 @@ NAME = "No Example Configuration Prompt"
 
 old_prompt_block = r"""
   if fn.isdirectory(path) ~= 1 then
-    local input = fn.input "Do you want to install example custom config? (y/N): "
+    local input = vim.env.NVCHAD_EXAMPLE_CONFIG or fn.input "Do you want to install example custom config? (y/N): "
 
     if input:lower() == "y" then
       M.echo "Cloning example custom config repo..."
